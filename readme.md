@@ -44,15 +44,17 @@ This means:
 **We can simply define arbitray types in SQLite
 as long as the type affinity algorithm yields the correct storage type.**
 
-We suggest following naming convention for types:
+We suggest to (mostly) use following naming convention for types:
 
 - `TEXT_` for text types
 - `INT_` for integer types
 - `REAL_` for real types
 - `BLOB_` for blob types
 
-And here is the full list of types we suggest
-(and which we support on [airsequel.com](https://airsequel.com)):
+
+### Complete List of Types
+
+We already partially support it on [airsequel.com](https://airsequel.com)).
 
 Name | Description
 ---- | -----------
@@ -83,16 +85,27 @@ Name | Description
 `TEXT_EAN` | International Article Number with 13 digits
 `TEXT_X` | Text in format "X" where "X" is a well defined and common format
 ====================|====================
-`INT_STARS` | Number of stars from 1 to 5
-`INT_STARS_10` | Number of stars from 1 to 10
-`INT_STARS_100` | Number of stars from 1 to 100
-`INT_PERCENT` | Percentage from 0 to 100
+`INT_16` or `SMALLINT` | 16 bit integer
+`INT_32`               | 32 bit integer
+`INT_64` or `BIGINT`   | 64 bit integer (Default, but this makes it clear)
+`UNSIGNED_INT_16`      | 16 bit unsigned integer
+`UNSIGNED_INT_32`      | 32 bit unsigned integer
+\-                     | 64 bit unsigned integer is not possible
+`INT_PERCENT`          | Percentage from 0 to 100
+`INT_STARS`            | Number of stars from 1 to 5
+`INT_STARS_10`         | Number of stars from 1 to 10
+`INT_STARS_100`        | Number of stars from 1 to 100
 ====================|====================
+`REAL_16` | 16 bit real
+`REAL_32` | 32 bit real
+`REAL_64` or `DOUBLE` | 64 bit real (Default, but this makes it clear)
+`REAL_PERCENT` | Percentage from 0.0 to 100.0
+`REAL_UNIT_INTERVAL_CLOSED` | `[0.0, 1.0]`
+`REAL_UNIT_INTERVAL_OPEN` | `]0.0, 1.0[`
 `REAL_MONEY` | Money in any currency
 `REAL_MONEY_EUR` | Money in Euro
 `REAL_MONEY_USD` | Money in US Dollar
 `REAL_MONEY_X` | Money in currency "X"
-`REAL_PERCENT` | Percentage from 0.0 to 1.0
 ====================|====================
 `BLOB_IMAGE` | Image in any image format
 `BLOB_IMAGE_JPEG` | Image in JPEG format
